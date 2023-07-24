@@ -1,11 +1,10 @@
 ---
 author: David A. Rasmussen,Carsten Magnus,Remco Bouckaert
-beastversion: 2.x
 title: Substitution-model-averaging
 level: Intermediate
-beastversion: 2.6.x
+beastversion: 2.7.x
 tracerversion: 1.7.0
-bmodeltestversion: 1.2.1
+bmodeltestversion: 1.3.3
 ---
 
 
@@ -172,7 +171,7 @@ In the **Clock Model** and **Prior** tabs, we do not need to change any of the d
 
 <figure>
 	<a id="fig:beastRun"></a>
-	<img style="width:50.0%;" src="figures/beastRun.png" alt="">
+	<img style="width:80.0%;" src="figures/beastRun.png" alt="">
 	<figcaption>Figure 4: Running the analysis in BEAST.</figcaption>
 </figure>
 <br>
@@ -282,28 +281,35 @@ Select pairs of the **rateAC, ... ,rateGT** parameters (using **shift+click**) a
 Another really nice feature of bModelTest is that we can graphically analyze the output using the **BModelAnalyser App**.
 
 
-> In BEAUti, select **File > Launch Apps** and then launch the **BModelAnalyser App**.  A dialogue window should pop up ([Figure 11](#fig:analyzerDialogue)). Enter `primate-mtDNA-bMT.log` as the file to analyze. You can leave the other entries at their default settings but make sure **transitionTransversionSplit** is selected for the Model Set and the box next to **Use Browser For Visualization** is checked. Then click **OK**.
+> In BEAUti, select **File > Launch Apps**. You can filter the apps by the package they are attached to, here **bModelTest** ([Figure 11](#fig:findingApp)). Find and launch the **BModelAnalyser App**.  A dialogue window should pop up ([Figure 12](#fig:analyzerDialogue)). Enter `primate-mtDNA-bMT.log` as the file to analyze. You can leave the other entries at their default settings but make sure **transitionTransversionSplit** is selected for the Model Set and the box next to **Use Browser For Visualization** is checked. Then click **OK**.
 > 
+
+<figure>
+	<a id="fig:findingApp"></a>
+	<img style="width:60.0%;" src="figures/findingApp.png" alt="">
+	<figcaption>Figure 11: Finding the BModelAnalyser App.</figcaption>
+</figure>
+<br>
 
 <figure>
 	<a id="fig:analyzerDialogue"></a>
 	<img style="width:60.0%;" src="figures/analyzerDialogue.png" alt="">
-	<figcaption>Figure 11: Running the BModelAnalyser App.</figcaption>
+	<figcaption>Figure 12: Running the BModelAnalyser App.</figcaption>
 </figure>
 <br>
 
 
-After BModelAnalyser runs, a new window should appear in your default web browser that represents the model selection results graphically ([Figure 12](#fig:modelGraph)). This graph depicts the nested relationship of the different substitution models: an arrow pointing from one model to another indicates that the model at the tail is nested within the model at the head of the arrow. As we can see, JC69 is nested within all other models and all other models are nested within GTR.
+After BModelAnalyser runs, a new window should appear in your default web browser that represents the model selection results graphically ([Figure 13](#fig:modelGraph)). This graph depicts the nested relationship of the different substitution models: an arrow pointing from one model to another indicates that the model at the tail is nested within the model at the head of the arrow. As we can see, JC69 is nested within all other models and all other models are nested within GTR.
 
 <figure>
 	<a id="fig:modelGraph"></a>
 	<img src="figures/modelGraph2.png" alt="">
-	<figcaption>Figure 12: A graphical representation of the model selection results produced by BModelAnalyzer.</figcaption>
+	<figcaption>Figure 13: A graphical representation of the model selection results produced by BModelAnalyzer.</figcaption>
 </figure>
 <br>
 
 
-The area of the circle surrounding each model is proportional to the the posterior support for that model. The colours represent whether the model is contained within the 95% credible set (blue) or not (red). For the primate data set, the HKY model clearly has the highest posterior support ([Figure 12](#fig:modelGraph)). However, other models such as TN93 and two unnamed models, **121323** and **121123**, also have fairly high posterior support. The six digit model code describes how the different substitution rates are grouped in the order of {% eqinline r_{ac} %}, {% eqinline r_{ag} %}, {% eqinline r_{at} %}, {% eqinline r_{cg} %}, {% eqinline r_{ct} %} and {% eqinline r_{gt} %}. For instance, **121323** is a slight variant of the HKY model with an additional group for the rates {% eqinline r_{ct} %} and {% eqinline r_{gt} %}. The six digit codes for all models are shown in [Figure 6](#fig:modelIndexes).
+The area of the circle surrounding each model is proportional to the the posterior support for that model. The colours represent whether the model is contained within the 95% credible set (blue) or not (red). For the primate data set, the HKY model clearly has the highest posterior support ([Figure 13](#fig:modelGraph)). However, other models such as TN93 and two unnamed models, **121323** and **121123**, also have fairly high posterior support. The six digit model code describes how the different substitution rates are grouped in the order of {% eqinline r_{ac} %}, {% eqinline r_{ag} %}, {% eqinline r_{at} %}, {% eqinline r_{cg} %}, {% eqinline r_{ct} %} and {% eqinline r_{gt} %}. For instance, **121323** is a slight variant of the HKY model with an additional group for the rates {% eqinline r_{ct} %} and {% eqinline r_{gt} %}. The six digit codes for all models are shown in [Figure 6](#fig:modelIndexes).
 
 
 > **Topic for discussion:** We have used bModelTest to explore a large set of substitution models. But how do we know that any of the substitution models actually fit the observed sequence data well?
