@@ -1,10 +1,18 @@
 ---
 author: David A. Rasmussen,Carsten Magnus,Remco Bouckaert
 title: Substitution-model-averaging
-level: Intermediate
-beastversion: 2.7.x
 tracerversion: 1.7.0
 bmodeltestversion: 1.3.3
+beastversion_tutorial: 2.7.x
+workflow: Basic workflow
+status: current
+keywords:
+- substitution models
+- site models
+- model averaging
+- model selection
+packages:
+- bModelTest
 ---
 
 
